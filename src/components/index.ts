@@ -1,3 +1,5 @@
+export { default as App } from "./App.tsx";
+
 export { default as AuthForm } from "./AuthForm/AuthForm.tsx";
 export { default as ContactCard } from "./ContactCard/ContactCard.tsx";
 export { default as Diagram } from "./Diagram/Diagram.tsx";

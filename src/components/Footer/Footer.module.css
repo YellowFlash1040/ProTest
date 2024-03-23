@@ -1,0 +1,112 @@
+.footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 28px;
+  padding-right: 21px;
+
+  background-color: #02172a;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  fill: rgba(255, 255, 255, 0.4);
+
+  display: flex;
+
+  height: 56px;
+}
+
+@media only screen and (min-width: 328px) {
+  .footer {
+    padding-right: 28px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+}
+
+.infoList {
+  display: flex;
+  column-gap: 4px;
+  row-gap: 4px;
+
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 328px) {
+  .infoList {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .infoList {
+    column-gap: 8px;
+  }
+}
+
+.infoListItem {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+@media only screen and (min-width: 768px) {
+  .infoListItem {
+    font-size: 12px;
+  }
+}
+
+.addAfter {
+  margin-right: 5px;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: -4px;
+
+    transform: translateY(-55%);
+
+    display: block;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 0.1px;
+    height: 13px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .addAfter {
+    margin-right: 9px;
+
+    &::after {
+      right: -8px;
+    }
+  }
+}
+
+.infoListItem > a {
+  color: inherit;
+}
+
+.copyRightIcon {
+  margin-right: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+  .copyRightIcon {
+    margin-right: 8px;
+  }
+}
+
+.heartIcon {
+  fill: #ff6b09;
+}
