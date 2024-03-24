@@ -63,6 +63,13 @@ img {
 
 button {
   padding: 0;
+
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 html,
@@ -75,6 +82,8 @@ body {
   flex-direction: column;
 
   font-family: "Montserrat", sans-serif;
+
+  background-color: #f5f6fb;
 }
 
 #root {
@@ -86,4 +95,8 @@ body {
 
 main {
   flex: 1;
+}
+
+:root {
+  --transition-options: 250ms ease-in-out;
 }

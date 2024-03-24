@@ -94,7 +94,7 @@
 }
 
 .infoListItem > a {
-  color: inherit;
+  text-decoration: underline;
 }
 
 .copyRightIcon {
