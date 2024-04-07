@@ -1,0 +1,229 @@
+.quote {
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+
+  text-align: center;
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  &::before {
+    content: "“";
+  }
+  &::after {
+    content: "”";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .quote {
+    font-size: 22px;
+    line-height: 1.36;
+
+    padding-top: 80px;
+
+    max-width: 650px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .quote {
+    padding-top: 120px;
+  }
+}
+
+.authorInfoContainer {
+  position: relative;
+
+  padding-top: 12px;
+  margin-bottom: 40px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    content: "";
+    width: 130px;
+    height: 1px;
+
+    background-color: rgba(0, 18, 47, 0.15);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .authorInfoContainer {
+    margin-bottom: 60px;
+
+    &::before {
+      width: 322px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .authorInfoContainer {
+    margin-bottom: 80px;
+  }
+}
+
+.authorName {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .authorName {
+    font-size: 18px;
+  }
+}
+
+.additionalAuthorInfo {
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .additionalAuthorInfo {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .additionalAuthorInfo {
+    font-weight: 400;
+  }
+}
+
+.testPageLinksList {
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1280px) {
+  .testPageLinksList {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLinksList {
+    margin-bottom: 125px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .testPageLinksList {
+    display: flex;
+    column-gap: 32px;
+    justify-content: center;
+
+    margin-bottom: 133px;
+  }
+}
+
+.testPageLinkItem {
+  box-shadow: 0 4px 15px 0 rgba(18, 29, 46, 0.15);
+
+  height: 212px;
+  min-height: 212px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .testPageLinkItem {
+    width: 400px;
+  }
+}
+
+.testPageLinkItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLinkItem:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.testPageLinkItem:nth-child(1) {
+  background-color: #02172a;
+}
+
+.testPageLinkItem:nth-child(2) {
+  background-color: #ff6b01;
+}
+
+.testPageLink {
+  display: block;
+  height: 100%;
+
+  padding-top: 60px;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+
+  text-align: center;
+
+  fill: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLink {
+    font-size: 32px;
+  }
+}
+
+.testPageLink > p {
+  margin: 0 auto 28px auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLink > p {
+    margin: 0 auto 8px auto;
+  }
+}
+
+.testPageLinkItem:nth-child(1) p {
+  max-width: 177px;
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLinkItem:nth-child(1) p {
+    max-width: 376px;
+  }
+}
+
+.testPageLinkItem:nth-child(2) p {
+  max-width: 105px;
+}
+
+@media only screen and (min-width: 768px) {
+  .testPageLinkItem:nth-child(2) p {
+    max-width: 132px;
+  }
+}
+
+.arrowIcon {
+  display: block;
+  margin: 0 auto;
+}

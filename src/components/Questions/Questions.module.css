@@ -1,0 +1,139 @@
+.questionnaireCard {
+  background-color: #ffffff;
+
+  box-shadow: 0 4px 15px 0 rgba(2, 23, 42, 0.1);
+
+  padding: 40px 20px 76px 20px;
+
+  margin-bottom: 20px;
+}
+
+.questionNumberInfo {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+.questionNumber {
+  color: #ff6b09;
+}
+
+.question {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+.testForm {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 32px;
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    content: "";
+    width: 130px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background-color: rgba(0, 18, 47, 0.15);
+  }
+}
+
+.answerOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.answerOption {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.customRadiobutton {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 50%;
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    content: "";
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    transition: background-color var(--transition-options);
+
+    background-color: transparent;
+  }
+
+  .hiddenRadiobutton:checked + &::before {
+    background-color: #ff6b09;
+  }
+}
+
+.nextPreviousButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nextPreviousButton {
+  min-width: 55px;
+  padding: 5px 15px;
+
+  background-color: #ffffff;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #ff6b09;
+  }
+}
+
+.previousButtonArrowIcon {
+  transform: rotate(180deg);
+}
+
+.nextPreviousButton > svg {
+  transition: fill var(--transition-options);
+}
+
+.nextPreviousButton:hover > svg {
+  fill: #ffffff;
+}

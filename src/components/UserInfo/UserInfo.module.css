@@ -1,0 +1,43 @@
+.profileCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileImageWrapper {
+  border-radius: 50%;
+  overflow: hidden;
+
+  background-color: #ffffff;
+  color: #555555;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 1px 1px 0 rgba(18, 29, 46, 0.1);
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.02em;
+}
+
+@media only screen and (max-width: 767px) {
+  .userName {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .userName {
+    font-weight: 500;
+
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 0.02em;
+  }
+}

@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 26px;
+  margin-bottom: 18px;
+}
+
+.testingTheoryLabel {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+
+  &::before {
+    content: "[";
+  }
+  &::after {
+    content: "]";
+  }
+}
+
+.finishTest {
+  display: block;
+
+  background-color: #ff6b09;
+  color: #ffffff;
+
+  padding: 17px 14px;
+
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+
+  width: 130px;
+  min-width: 130px;
+
+  text-align: center;
+}
+
+.questionsComponent {
+  margin-bottom: 20px;
+}

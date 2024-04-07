@@ -1,7 +1,12 @@
+import { ReactNode } from "react"
 import s from "./PageContainer.module.css"
 
-const PageContainer = () => {
-  return <div className={s.pageContainer}></div>
+interface PageContainerProps {
+  children: ReactNode
+}
+
+const PageContainer = ({ children }: PageContainerProps) => {
+  return <div className={s.pageContainer}>{children}</div>
 }
 
 export default PageContainer

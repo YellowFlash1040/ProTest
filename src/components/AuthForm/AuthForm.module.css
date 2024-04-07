@@ -1,0 +1,202 @@
+.container {
+  background-color: #ffffff;
+
+  box-shadow: 0 4px 15px 0 rgba(2, 23, 42, 0.1);
+
+  padding: 40px 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 501px;
+    margin: 0 auto;
+    padding: 60px 32px 48px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .container {
+    width: 501px;
+  }
+}
+
+.textGoogle {
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  margin-bottom: 32px;
+}
+
+@media only screen and (max-width: 767px) {
+  .textGoogle {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .textGoogle {
+    font-size: 14px;
+  }
+}
+
+.googleAuthButton {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+
+  padding: 17px 38px;
+
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 159px;
+
+  background-color: #fafafa;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #dadada;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .googleAuthButton {
+    margin: 0 auto 32px auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .googleAuthButton {
+    margin-bottom: 32px;
+  }
+}
+
+.text {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .text {
+    max-width: 240px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .text {
+    font-size: 14px;
+
+    margin-bottom: 32px;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput {
+  padding: 20px;
+
+  border: 1px solid #ced2d1;
+
+  color: #000000;
+
+  font-size: 14px;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: #bbbbbb;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .textInput:nth-child(1) {
+    margin-bottom: 24px;
+  }
+
+  .textInput:nth-child(2) {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .textInput {
+    padding: 20px 25px;
+  }
+}
+
+.signButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signButton {
+  padding-top: 25px;
+  padding-bottom: 21px;
+
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  text-align: center;
+
+  width: 109px;
+
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+  .signButton {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .signButton {
+    width: 210px;
+  }
+}
+
+.signInButton {
+  background-color: #ff6b09;
+  color: #ffffff;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #cc5507;
+  }
+}
+
+.signUpButton {
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #ced2d1;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #cccccc;
+  }
+}
+
+.error {
+  border: 1px solid red;
+  outline: 1px solid red;
+}

@@ -9,16 +9,45 @@ import {
   Test,
   UsefulInfo,
 } from "../pages"
+import { PrivateRoute, PublicRoute } from "../routes"
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={<MainPage />} />
-        <Route path='auth' element={<AuthPage />} />
+        <Route
+          index
+          element={
+            <PrivateRoute>
+              <MainPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='auth'
+          element={
+            <PublicRoute>
+              <AuthPage />
+            </PublicRoute>
+          }
+        />
         <Route path='contacts' element={<ContactsPage />} />
-        <Route path='results' element={<Results />} />
-        <Route path='test' element={<Test />} />
+        <Route
+          path='results'
+          element={
+            <PrivateRoute>
+              <Results />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='test'
+          element={
+            <PrivateRoute>
+              <Test />
+            </PrivateRoute>
+          }
+        />
         <Route path='useful-info' element={<UsefulInfo />} />
       </Route>
       <Route path='*' element={<Navigate to={"/"} />} />

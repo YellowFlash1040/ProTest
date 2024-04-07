@@ -6,25 +6,51 @@
   justify-content: space-between;
 
   border-bottom: 1px solid #e2e3e5;
+
+  background-color: #f5f6fb;
 }
 
 @media only screen and (min-width: 768px) {
   .header {
-    padding: 20px 32px;
+    /* padding: 20px 32px; */
+    padding: 0 32px;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .header {
-    padding: 20px 16px;
+    /* padding: 20px 16px; */
+    padding: 0px 16px;
   }
 }
 
-.logoLink {
-  line-height: 0;
+.addHeaderPadding {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.navLinkItem {
-  font-size: 12px;
-  line-height: 1.33;
+.navigationAndUserWrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+  .navigationAndUserWrapper {
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
+}
+
+.signOutIconContainer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  border-left: 1px solid #e2e3e5;
+
+  height: 68px;
+  width: 36px;
+
+  cursor: pointer;
 }
