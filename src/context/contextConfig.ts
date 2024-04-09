@@ -1,5 +1,5 @@
 import { createContext } from "react"
-import { TestType } from "../types"
+import { Answer, TestType } from "../types"
 
 export type stringOrNull = string | null
 
@@ -15,6 +15,8 @@ interface AppContextProps {
   logOut: () => void
   currentTestType: TestType
   setCurrentTestType: (testType: TestType) => void
+  answers: Answer[]
+  setAnswers: (answers: Answer[]) => void
 }
 
 export const AppContext = createContext<AppContextProps>({
@@ -24,4 +26,6 @@ export const AppContext = createContext<AppContextProps>({
   logOut: () => {},
   currentTestType: "tech",
   setCurrentTestType: () => {},
+  answers: [],
+  setAnswers: () => {},
 })

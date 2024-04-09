@@ -9,7 +9,7 @@ const Test = () => {
   const { currentTestType } = useAppContext()
 
   return (
-    <div>
+    <>
       <div className={s.wrapper}>
         <p className={s.testingTheoryLabel}>
           {currentTestType === "tech" && (
@@ -32,7 +32,7 @@ const Test = () => {
         </Link>
       </div>
       <Questions className={s.questionsComponent} />
-    </div>
+    </>
   )
 }
 

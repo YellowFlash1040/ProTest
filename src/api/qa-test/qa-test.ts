@@ -1,3 +1,4 @@
+import { Answer } from "../../types"
 import api from "../axiosConfig"
 
 const tech = async () => {
@@ -18,4 +19,22 @@ const theory = async () => {
   }
 }
 
-export default { tech, theory }
+const techResults = async (answers: Answer[]) => {
+  try {
+    const response = await api.post("qa-test/tech-results", { answers })
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const theoryResults = async (answers: Answer[]) => {
+  try {
+    const response = await api.post("qa-test/theory-results", { answers })
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export default { tech, theory, techResults, theoryResults }

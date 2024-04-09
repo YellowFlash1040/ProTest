@@ -1,3 +1,11 @@
+@media only screen and (min-width: 1280px) {
+  .questionsComponent {
+    max-width: 821px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .questionnaireCard {
   background-color: #ffffff;
 
@@ -6,6 +14,18 @@
   padding: 40px 20px 76px 20px;
 
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .questionnaireCard {
+    padding: 40px 27px 60px 27px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .questionnaireCard {
+    padding: 40px 86px 80px 87px;
+  }
 }
 
 .questionNumberInfo {
@@ -18,8 +38,16 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+  .questionNumberInfo {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+
 .questionNumber {
   color: #ff6b09;
+  font-weight: 700;
 }
 
 .question {
@@ -31,6 +59,15 @@
   text-align: center;
 
   margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .question {
+    font-size: 22px;
+    line-height: 1.36;
+
+    margin-bottom: 28px;
+  }
 }
 
 .testForm {
@@ -56,10 +93,37 @@
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .testForm {
+    padding-top: 40px;
+
+    &::before {
+      width: 336px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .testForm {
+    padding-top: 32px;
+
+    &::before {
+      width: 322px;
+    }
+  }
+}
+
 .answerOptionsList {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .answerOptionsList {
+    max-width: 558px;
+    margin: 0 auto;
+  }
 }
 
 .answerOption {
@@ -69,6 +133,16 @@
 
   font-size: 10px;
   letter-spacing: 0.02em;
+
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .answerOption {
+    font-size: 16px;
+  }
 }
 
 .customRadiobutton {
@@ -97,7 +171,7 @@
 
     transform: translate(-50%, -50%);
 
-    transition: background-color var(--transition-options);
+    /* transition: background-color var(--transition-options); */
 
     background-color: transparent;
   }
@@ -107,22 +181,58 @@
   }
 }
 
+.customRadiobuttonTransition {
+  &::before {
+    transition: background-color var(--transition-options);
+  }
+}
+
 .nextPreviousButtonsContainer {
   display: flex;
   justify-content: space-between;
 }
 
 .nextPreviousButton {
+  display: flex;
+  align-items: center;
+
   min-width: 55px;
-  padding: 5px 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   background-color: #ffffff;
 
-  transition: background-color var(--transition-options);
+  transition: background-color var(--transition-options),
+    color var(--transition-options);
+
+  font-size: 12px;
+  line-height: 0.83;
+  letter-spacing: 0.02em;
 
   &:hover,
   &:focus {
     background-color: #ff6b09;
+    color: #ffffff;
+  }
+}
+
+.nextPreviousButton:nth-child(1) {
+  padding-left: 14px;
+  column-gap: 12px;
+}
+
+.nextPreviousButton:nth-child(2) {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .nextPreviousButton {
+    min-width: 210px;
+    width: 210px;
   }
 }
 

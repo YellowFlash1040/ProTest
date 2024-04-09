@@ -7,8 +7,26 @@
   margin-bottom: 18px;
 }
 
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    align-items: start;
+
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .wrapper {
+    max-width: 821px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .testingTheoryLabel {
   font-size: 14px;
+  line-height: 1.29;
   letter-spacing: 0.02em;
 
   &::before {
@@ -16,6 +34,19 @@
   }
   &::after {
     content: "]";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .testingTheoryLabel {
+    font-size: 22px;
+    line-height: 1.23;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .testingTheoryLabel {
+    font-weight: 500;
   }
 }
 
@@ -37,6 +68,29 @@
   text-align: center;
 }
 
+@media only screen and (min-width: 768px) {
+  .finishTest {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+
+    width: 181px;
+    min-width: 181px;
+  }
+}
+
 .questionsComponent {
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .questionsComponent {
+    margin-bottom: 273px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .questionsComponent {
+    margin-bottom: 107px;
+  }
 }

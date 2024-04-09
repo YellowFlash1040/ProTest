@@ -1,5 +1,5 @@
 const UserfulInfo = () => {
-  return <div>UserfulInfo</div>;
-};
+  return <div>UserfulInfo</div>
+}
 
-export default UserfulInfo;
+export default UserfulInfo

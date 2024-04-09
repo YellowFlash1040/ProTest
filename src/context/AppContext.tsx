@@ -3,7 +3,7 @@ import { TOKEN_KEY } from "../constants/localStorage/localStorage"
 import api from "../api"
 import { setAxiosToken } from "../api/axiosConfig"
 import { AppContext, stringOrNull, userDataType } from "./contextConfig"
-import { TestType } from "../types"
+import { Answer, TestType } from "../types"
 
 interface AppContextProviderProps {
   children: ReactNode
@@ -16,6 +16,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     id: null,
   })
   const [currentTestType, setCurrentTestType] = useState<TestType>("tech")
+  const [answers, setAnswers] = useState<Answer[]>([])
 
   useEffect(() => {
     const loadDataFromLocalStorage = () => {
@@ -55,6 +56,11 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     setUserData({ email: null, id: null })
   }
 
+  // const saveAnswers(answers: Answer[]) => {
+  //   setAnswers(answers)
+  //   localStorage.setItem()
+  // }
+
   return (
     <AppContext.Provider
       value={{
@@ -64,6 +70,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         logOut,
         currentTestType,
         setCurrentTestType,
+        answers,
+        setAnswers,
       }}
     >
       {children}
