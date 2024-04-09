@@ -1,0 +1,195 @@
+/* main {
+  background-image: url("../images/png/useful-info-page-bg-image-mobile.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+.section {
+  padding-top: 40px;
+  padding-bottom: 117px;
+
+  background-image: url("../images/png/useful-info-page-bg-image-mobile.png");
+  background-position: top;
+  /* background-size: auto; */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding-top: 180px;
+    padding-bottom: 356px;
+
+    background-image: url("../images/png/useful-info-page-bg-image-tablet.png");
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .section {
+    padding-top: 100px;
+    padding-bottom: 272px;
+
+    background-image: url("../images/png/useful-info-page-bg-image-laptop.png");
+  }
+}
+
+.infoBlockContainer:nth-child(1) {
+  margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .infoBlockContainer {
+    margin-left: 107px;
+  }
+}
+
+.usefulLiteratureLabel {
+  max-width: 129px;
+
+  margin-bottom: 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+
+    content: "";
+
+    width: 150px;
+    height: 1px;
+
+    background-color: rgb(0, 18, 47, 0.15);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .usefulLiteratureLabel {
+    max-width: 336px;
+
+    margin-bottom: 44px;
+
+    font-size: 22px;
+    line-height: 1.36;
+
+    &::after {
+      bottom: -20px;
+
+      width: 336px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .usefulLiteratureLabel {
+    &::after {
+      width: 322px;
+    }
+  }
+}
+
+.usefulLiteratureList {
+  max-width: 207px;
+
+  list-style-type: decimal;
+  list-style-position: inside;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+@media only screen and (min-width: 768px) {
+  .usefulLiteratureList {
+    max-width: 254px;
+
+    margin-left: 82px;
+
+    font-size: 14px;
+    line-height: 1.57;
+  }
+}
+
+.usefulResourcesLabel {
+  max-width: 129px;
+
+  margin-bottom: 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+
+    content: "";
+
+    width: 150px;
+    height: 1px;
+
+    background-color: rgb(0, 18, 47, 0.15);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .usefulResourcesLabel {
+    max-width: 336px;
+
+    margin-bottom: 44px;
+
+    font-size: 22px;
+    line-height: 1.36;
+
+    &::after {
+      bottom: -20px;
+
+      width: 336px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .usefulResourcesLabel {
+    &::after {
+      width: 322px;
+    }
+  }
+}
+
+.usefulResourcesList {
+  max-width: 205px;
+
+  list-style-type: decimal;
+  list-style-position: inside;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+@media only screen and (min-width: 768px) {
+  .usefulResourcesList {
+    max-width: 254px;
+
+    margin-left: 82px;
+
+    font-size: 14px;
+    line-height: 1.57;
+  }
+}
+
+.resourceLink {
+  text-decoration: underline;
+}
