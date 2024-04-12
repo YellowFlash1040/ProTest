@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 
 import { useAppContext } from "../../hooks/useAppContext"
 import ArrowIcon from "../../assets/ArrowRight.svg?react"
+import { PageContainer } from "../../components"
 
 import s from "./MainPage.module.css"
 
@@ -9,7 +10,7 @@ const MainPage = () => {
   const { setCurrentTestType } = useAppContext()
 
   return (
-    <>
+    <PageContainer>
       <p className={s.quote}>
         Regression testing. What is it?
         <br />
@@ -43,7 +44,7 @@ const MainPage = () => {
           </Link>
         </li>
       </ul>
-    </>
+    </PageContainer>
   )
 }
 

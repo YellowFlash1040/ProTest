@@ -1,10 +1,10 @@
-import { AuthForm } from "../../components"
+import { AuthForm, PageContainer } from "../../components"
 
 import s from "./AuthPage.module.css"
 
 const AuthPage = () => {
   return (
-    <>
+    <PageContainer>
       <section className={s.section}>
         <div className={s.textAndTitleWrapper}>
           <h1 className={s.title}>Pro Test</h1>
@@ -18,7 +18,7 @@ const AuthPage = () => {
         </div>
         <AuthForm />
       </section>
-    </>
+    </PageContainer>
   )
 }
 

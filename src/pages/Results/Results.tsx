@@ -5,17 +5,11 @@ import api from "../../api"
 import { useAppContext } from "../../hooks/useAppContext"
 import { ANSWERS } from "../../constants/localStorage/localStorage"
 import { IResults } from "../../types"
+import { Diagram, PageContainer } from "../../components"
 
 import s from "./Results.module.css"
 
 const Results = () => {
-  // const [results, setResults] = useState<IResults>({
-  //   countOfQuestion: 12,
-  //   countOfRightAnswers: 9,
-  //   mainMessage: "Not bad!",
-  //   secondaryMessage: "But you still need to learn some materials.",
-  //   rightAnswerPercentage: 92,
-  // })
   const [results, setResults] = useState<IResults>()
 
   const { currentTestType } = useAppContext()
@@ -42,7 +36,7 @@ const Results = () => {
         const editedData: IResults = {
           countOfQuestion: countOfQuestions,
           countOfRightAnswers: countOfRightAnswers,
-          rightAnswerPercentage: data.result,
+          rightAnswerPercentage: percentageFromApi,
           mainMessage: data.mainMessage,
           secondaryMessage: data.secondaryMessage,
         }
@@ -59,43 +53,50 @@ const Results = () => {
   }
 
   return (
-    <section className={s.section}>
-      <div className={s.decorativeContainer}>
-        <h1 className={s.resultsLabel}>Results</h1>
-        <h2 className={s.testTypeLabel}>
-          {(currentTestType === "theory" && <> Testing theory_</>) || (
-            <> QA technical training_</>
-          )}
-        </h2>
-      </div>
+    <PageContainer>
+      <section className={s.section}>
+        <div className={s.decorativeContainer}>
+          <h1 className={s.resultsLabel}>Results</h1>
+          <h2 className={s.testTypeLabel}>
+            {(currentTestType === "theory" && <> Testing theory_</>) || (
+              <> QA technical training_</>
+            )}
+          </h2>
+        </div>
 
-      <div className={s.pieChart}></div>
+        <Diagram
+          data={{
+            correct: results ? results.rightAnswerPercentage : 50,
+            incorrect: results ? 100 - results.rightAnswerPercentage : 50,
+          }}
+        />
 
-      <ul className={s.resultsList}>
-        <li className={s.correctAnswersLabel}>
-          <p>
-            Correct answers -{" "}
-            <span className={s.boldNumbers}>
-              {results?.countOfRightAnswers}
-            </span>
-          </p>
-        </li>
-        <li>
-          <p>
-            Total questions -{" "}
-            <span className={s.boldNumbers}>{results?.countOfQuestion}</span>
-          </p>
-        </li>
-      </ul>
+        <ul className={s.resultsList}>
+          <li className={s.correctAnswersLabel}>
+            <p>
+              Correct answers -{" "}
+              <span className={s.boldNumbers}>
+                {results?.countOfRightAnswers}
+              </span>
+            </p>
+          </li>
+          <li>
+            <p>
+              Total questions -{" "}
+              <span className={s.boldNumbers}>{results?.countOfQuestion}</span>
+            </p>
+          </li>
+        </ul>
 
-      <div className={s.catImage} />
+        <div className={s.catImage} />
 
-      <h3 className={s.resultInTextForm}>{results?.mainMessage}</h3>
-      <p className={s.resultsComment}>{results?.secondaryMessage}</p>
-      <button className={s.tryAgainButton} onClick={handleTryAgainOnClick}>
-        Try again
-      </button>
-    </section>
+        <h3 className={s.resultInTextForm}>{results?.mainMessage}</h3>
+        <p className={s.resultsComment}>{results?.secondaryMessage}</p>
+        <button className={s.tryAgainButton} onClick={handleTryAgainOnClick}>
+          Try again
+        </button>
+      </section>
+    </PageContainer>
   )
 }
 

@@ -1,0 +1,69 @@
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.photo {
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .photo {
+    width: 336px;
+    height: 244px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .photo {
+    width: 288px;
+    height: 244px;
+  }
+}
+
+.contactInfoCard {
+  padding: 20px 20px 22px 20px;
+
+  background-color: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .contactInfoCard {
+    padding: 20px 28px 18px 28px;
+  }
+}
+
+.name {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+
+  margin-bottom: 6px;
+}
+
+@media only screen and (min-width: 768px) {
+  .name {
+    margin-bottom: 8px;
+  }
+}
+
+.position {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .position {
+    margin-bottom: 8px;
+  }
+}
+
+.description {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: 0.02em;
+}

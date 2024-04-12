@@ -199,6 +199,7 @@ import ArrowIcon from "../../assets/ArrowRight.svg?react"
 import s from "./Questions.module.css"
 import { ANSWERS } from "../../constants/localStorage/localStorage"
 import { useNavigate } from "react-router-dom"
+import { Hourglass } from "react-loader-spinner"
 
 interface QuestionsProps {
   className?: string
@@ -222,6 +223,8 @@ const Questions = ({ className }: QuestionsProps) => {
   const { currentTestType } = useAppContext()
   const navigate = useNavigate()
 
+  const [isLoading, setIsLoading] = useState(false)
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
@@ -241,6 +244,8 @@ const Questions = ({ className }: QuestionsProps) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
+
         let data
         if (currentTestType === "tech") {
           data = await api.qaTest.tech()
@@ -253,10 +258,13 @@ const Questions = ({ className }: QuestionsProps) => {
         setAnswerOptions(data[0].answers)
       } catch (error) {
         console.log(error)
+        navigate("/auth", { replace: true })
+      } finally {
+        setIsLoading(false)
       }
     }
     fetchData()
-  }, [currentTestType])
+  }, [currentTestType, navigate])
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const answer = event.currentTarget.value
@@ -305,80 +313,93 @@ const Questions = ({ className }: QuestionsProps) => {
 
   return (
     <div className={clsx(className, s.questionsComponent)}>
-      <div className={s.questionnaireCard}>
-        <p className={s.questionNumberInfo}>
-          Question <span className={s.questionNumber}>{index + 1}</span> /{" "}
-          {questions?.length}
-        </p>
-        <p className={s.question}>{question?.question}</p>
-        <form
-          className={s.testForm}
-          onClick={() => {
-            setPreviousIndex(index)
-          }}
-        >
-          <ul className={s.answerOptionsList}>
-            {answerOptions.map(answerOption => (
-              <li key={answerOption}>
-                <label className={s.answerOption}>
-                  <input
-                    className={s.hiddenRadiobutton}
-                    type='radio'
-                    name='answer'
-                    hidden
-                    value={answerOption}
-                    checked={answerOption === currentAnswer}
-                    onChange={handleOnChange}
-                  />
-                  <span
-                    className={clsx(s.customRadiobutton, {
-                      [s.customRadiobuttonTransition]: previousIndex === index,
-                    })}
-                  ></span>
-                  <p style={{ flex: 1, overflowWrap: "anywhere" }}>
-                    {answerOption}
-                  </p>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </form>
+      <div
+        className={clsx(s.questionnaireCard, {
+          [s.questionnaireCardMinHeight]: isLoading,
+        })}
+      >
+        {(isLoading && <Hourglass wrapperClass={s.loader} />) || (
+          <>
+            <p className={s.questionNumberInfo}>
+              Question <span className={s.questionNumber}>{index + 1}</span> /{" "}
+              {questions?.length}
+            </p>
+            <p className={s.question}>{question?.question}</p>
+            <form
+              className={s.testForm}
+              onClick={() => {
+                setPreviousIndex(index)
+              }}
+            >
+              <ul className={s.answerOptionsList}>
+                {answerOptions.map(answerOption => (
+                  <li key={answerOption}>
+                    <label className={s.answerOption}>
+                      <input
+                        className={s.hiddenRadiobutton}
+                        type='radio'
+                        name='answer'
+                        hidden
+                        value={answerOption}
+                        checked={answerOption === currentAnswer}
+                        onChange={handleOnChange}
+                      />
+                      <span
+                        className={clsx(s.customRadiobutton, {
+                          [s.customRadiobuttonTransition]:
+                            previousIndex === index,
+                        })}
+                      ></span>
+                      <p style={{ flex: 1, overflowWrap: "anywhere" }}>
+                        {answerOption}
+                      </p>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </form>
+          </>
+        )}
       </div>
       <div className={s.nextPreviousButtonsContainer}>
-        <button
-          className={s.nextPreviousButton}
-          onClick={event => {
-            event.currentTarget.blur()
-            handleQuestionChange("previous")
-          }}
-        >
-          <ArrowIcon
-            width={24}
-            height={24}
-            className={s.previousButtonArrowIcon}
-          />
-          {screenWidth > 767 && <>Previous question</>}
-        </button>
-        {(index === questions.length - 1 && (
-          <button
-            style={{ backgroundColor: "green" }}
-            onClick={() => {
-              finishTest()
-            }}
-          >
-            See results
-          </button>
-        )) || (
-          <button
-            className={s.nextPreviousButton}
-            onClick={event => {
-              event.currentTarget.blur()
-              handleQuestionChange("next")
-            }}
-          >
-            <ArrowIcon width={24} height={24} />
-            {screenWidth > 767 && <>Next question</>}
-          </button>
+        {!isLoading && (
+          <>
+            <button
+              className={s.nextPreviousButton}
+              onClick={event => {
+                event.currentTarget.blur()
+                handleQuestionChange("previous")
+              }}
+            >
+              <ArrowIcon
+                width={24}
+                height={24}
+                className={s.previousButtonArrowIcon}
+              />
+              {screenWidth > 767 && <>Previous question</>}
+            </button>
+            {(index === questions.length - 1 && (
+              <button
+                className={s.checkResultsButton}
+                onClick={() => {
+                  finishTest()
+                }}
+              >
+                Check results
+              </button>
+            )) || (
+              <button
+                className={s.nextPreviousButton}
+                onClick={event => {
+                  event.currentTarget.blur()
+                  handleQuestionChange("next")
+                }}
+              >
+                <ArrowIcon width={24} height={24} />
+                {screenWidth > 767 && <>Next question</>}
+              </button>
+            )}
+          </>
         )}
       </div>
     </div>

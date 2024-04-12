@@ -16,6 +16,14 @@
   margin-bottom: 20px;
 }
 
+.questionnaireCard {
+  position: relative;
+}
+
+.questionnaireCardMinHeight {
+  min-height: 456px;
+}
+
 @media only screen and (min-width: 768px) {
   .questionnaireCard {
     padding: 40px 27px 60px 27px;
@@ -171,8 +179,6 @@
 
     transform: translate(-50%, -50%);
 
-    /* transition: background-color var(--transition-options); */
-
     background-color: transparent;
   }
 
@@ -246,4 +252,31 @@
 
 .nextPreviousButton:hover > svg {
   fill: #ffffff;
+}
+
+.checkResultsButton {
+  color: #ffffff;
+  background-color: green;
+
+  padding: 5px 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .checkResultsButton {
+    padding: 5px 20px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .checkResultsButton {
+    padding: 5px 40px;
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
 }

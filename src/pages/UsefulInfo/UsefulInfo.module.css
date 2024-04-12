@@ -7,7 +7,9 @@
 
 .section {
   padding-top: 40px;
-  padding-bottom: 117px;
+  /* padding-bottom: 117px; */
+  min-height: 445px;
+  height: 100%;
 
   background-image: url("../images/png/useful-info-page-bg-image-mobile.png");
   background-position: top;
@@ -16,19 +18,27 @@
   background-repeat: no-repeat;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
   .section {
     padding-top: 180px;
     padding-bottom: 356px;
 
     background-image: url("../images/png/useful-info-page-bg-image-tablet.png");
+    background-position: 0 -68px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) and (min-height: 1025px) {
+  .section {
+    background-position: top;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .section {
     padding-top: 100px;
-    padding-bottom: 272px;
+    /* padding-bottom: 272px; */
+    min-height: 724px;
 
     background-image: url("../images/png/useful-info-page-bg-image-laptop.png");
   }
@@ -36,6 +46,12 @@
 
 .infoBlockContainer:nth-child(1) {
   margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .infoBlockContainer:nth-child(2) {
+    min-height: 169px;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
