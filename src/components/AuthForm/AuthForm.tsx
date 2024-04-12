@@ -43,7 +43,7 @@ const AuthForm = () => {
   const onSubmit = async (data: FormData) => {
     if (actionType === "sign in") {
       try {
-        logIn(data)
+        await logIn(data)
         navigate("/", { replace: true })
       } catch (error) {
         if (isAxiosError(error)) {

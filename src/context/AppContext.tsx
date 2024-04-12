@@ -63,22 +63,6 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     localStorage.setItem(TEST_TYPE_KEY, testType)
   }, [currentTestType])
 
-  // const logIn = (
-  //   token: stringOrNull,
-  //   refreshToken: stringOrNull,
-  //   sid: stringOrNull,
-  //   userData: userDataType,
-  // ) => {
-  //   if (token) {
-  //     setIsLoggedIn(true)
-  //     localStorage.setItem(TOKEN_KEY, JSON.stringify(token))
-  //     localStorage.setItem(REFRESH_TOKEN_KEY, JSON.stringify(refreshToken))
-  //     localStorage.setItem(SID_KEY, JSON.stringify(sid))
-  //     setAxiosToken(token)
-  //     setUserData(userData)
-  //   }
-  // }
-
   const logIn = async (data: UserCredentials) => {
     const result = await api.auth.login(data)
     const { accessToken: token, refreshToken, sid, userData } = result
@@ -144,11 +128,6 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       }
     }
   }
-
-  // const saveAnswers(answers: Answer[]) => {
-  //   setAnswers(answers)
-  //   localStorage.setItem()
-  // }
 
   return (
     <AppContext.Provider

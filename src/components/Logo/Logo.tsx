@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { MouseEvent } from "react"
 
 import LogoIcon from "../../assets/Logo.svg?react"
 
@@ -9,8 +10,18 @@ interface LogoProps {
 }
 
 const Logo = ({ onClick }: LogoProps) => {
+  const location = useLocation()
+
+  const handleOnClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === "/auth") {
+      event.preventDefault()
+    }
+
+    onClick()
+  }
+
   return (
-    <Link to={"/"} className={s.logoLink} onClick={() => onClick()}>
+    <Link to={"/"} className={s.logoLink} onClick={handleOnClick}>
       <LogoIcon />
     </Link>
   )

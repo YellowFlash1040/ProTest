@@ -1,3 +1,25 @@
+.section {
+  /* min-height: 693px; */
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    /* min-height: 899px; */
+    padding-top: 80px;
+    padding-bottom: 125px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .section {
+    /* min-height: 724px; */
+    padding-top: 120px;
+    padding-bottom: 133px;
+  }
+}
+
 .quote {
   font-size: 12px;
   line-height: 1.67;
@@ -6,7 +28,7 @@
 
   text-align: center;
 
-  padding-top: 32px;
+  /* padding-top: 32px; */
   padding-bottom: 32px;
 
   &::before {
@@ -22,7 +44,7 @@
     font-size: 22px;
     line-height: 1.36;
 
-    padding-top: 80px;
+    /* padding-top: 80px; */
 
     max-width: 650px;
 
@@ -31,11 +53,11 @@
   }
 }
 
-@media only screen and (min-width: 1280px) {
+/* @media only screen and (min-width: 1280px) {
   .quote {
     padding-top: 120px;
   }
-}
+} */
 
 .authorInfoContainer {
   position: relative;
@@ -111,7 +133,7 @@
 }
 
 .testPageLinksList {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -122,11 +144,11 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .testPageLinksList {
     margin-bottom: 125px;
   }
-}
+} */
 
 @media only screen and (min-width: 1280px) {
   .testPageLinksList {
@@ -134,7 +156,7 @@
     column-gap: 32px;
     justify-content: center;
 
-    margin-bottom: 133px;
+    /* margin-bottom: 133px; */
   }
 }
 
