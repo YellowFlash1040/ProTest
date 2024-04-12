@@ -12,3 +12,5 @@ export { default as Questions } from "./Questions/Questions.tsx"
 export { default as UserInfo } from "./UserInfo/UserInfo.tsx"
 
 export { default as PageContainer } from "./PageContainer/PageContainer.tsx"
+
+export { default as LazyPageLoader } from "./LazyPageLoader/LazyPageLoader.tsx"

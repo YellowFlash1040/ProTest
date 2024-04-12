@@ -1,15 +1,15 @@
 import { Navigate, Route, Routes } from "react-router-dom"
+import { lazy, Suspense } from "react"
 
-import { Layout } from "../components"
-import {
-  AuthPage,
-  ContactsPage,
-  MainPage,
-  Results,
-  Test,
-  UsefulInfo,
-} from "../pages"
 import { PrivateRoute, PublicRoute } from "../routes"
+import { Layout, LazyPageLoader } from "../components"
+
+const MainPage = lazy(() => import("../pages/MainPage/MainPage"))
+const AuthPage = lazy(() => import("../pages/AuthPage/AuthPage"))
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"))
+const Results = lazy(() => import("../pages/Results/Results"))
+const Test = lazy(() => import("../pages/Test/Test"))
+const UsefulInfo = lazy(() => import("../pages/UsefulInfo/UsefulInfo"))
 
 function App() {
   return (
@@ -18,37 +18,59 @@ function App() {
         <Route
           index
           element={
-            <PrivateRoute>
-              <MainPage />
-            </PrivateRoute>
+            <Suspense fallback={<LazyPageLoader />}>
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            </Suspense>
           }
         />
         <Route
           path='auth'
           element={
-            <PublicRoute>
-              <AuthPage />
-            </PublicRoute>
+            <Suspense fallback={<LazyPageLoader />}>
+              <PublicRoute>
+                <AuthPage />
+              </PublicRoute>
+            </Suspense>
           }
         />
-        <Route path='contacts' element={<ContactsPage />} />
+        <Route
+          path='contacts'
+          element={
+            <Suspense fallback={<LazyPageLoader />}>
+              <ContactsPage />
+            </Suspense>
+          }
+        />
         <Route
           path='results'
           element={
-            <PrivateRoute>
-              <Results />
-            </PrivateRoute>
+            <Suspense fallback={<LazyPageLoader />}>
+              <PrivateRoute>
+                <Results />
+              </PrivateRoute>
+            </Suspense>
           }
         />
         <Route
           path='test'
           element={
-            <PrivateRoute>
-              <Test />
-            </PrivateRoute>
+            <Suspense fallback={<LazyPageLoader />}>
+              <PrivateRoute>
+                <Test />
+              </PrivateRoute>
+            </Suspense>
           }
         />
-        <Route path='useful-info' element={<UsefulInfo />} />
+        <Route
+          path='useful-info'
+          element={
+            <Suspense fallback={<LazyPageLoader />}>
+              <UsefulInfo />
+            </Suspense>
+          }
+        />
       </Route>
       <Route path='*' element={<Navigate to={"/"} />} />
     </Routes>

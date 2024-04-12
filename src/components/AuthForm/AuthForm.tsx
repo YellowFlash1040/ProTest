@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import clsx from "clsx"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -9,10 +10,9 @@ import { toast } from "react-toastify"
 import GoogleIcon from "../../assets/Google.svg?react"
 import api from "../../api"
 import { API_HOST, GOOGLE_AUTH_ROUTE } from "../../constants"
+import { useAppContext } from "../../hooks"
 
 import s from "./AuthForm.module.css"
-import { useNavigate } from "react-router-dom"
-import { useAppContext } from "../../hooks/useAppContext"
 
 interface FormData {
   email: string
