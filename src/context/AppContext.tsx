@@ -1,9 +1,16 @@
 import { ReactNode, useState, useEffect } from "react"
-import { TOKEN_KEY } from "../constants/localStorage/localStorage"
+
+import {
+  TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+  SID_KEY,
+  TEST_TYPE_KEY,
+} from "../constants"
 import api from "../api"
 import { setAxiosToken } from "../api/axiosConfig"
-import { AppContext, stringOrNull, userDataType } from "./contextConfig"
-import { Answer, TestType } from "../types"
+import { Answer, TestType, UserCredentials } from "../types"
+
+import { AppContext, userDataType } from "./contextConfig"
 
 interface AppContextProviderProps {
   children: ReactNode
@@ -15,45 +22,127 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     email: null,
     id: null,
   })
-  const [currentTestType, setCurrentTestType] = useState<TestType>("tech")
+  const [currentTestType, setCurrentTestType] = useState<TestType>(
+    JSON.parse(localStorage.getItem(TEST_TYPE_KEY) || `"tech"`),
+  )
   const [answers, setAnswers] = useState<Answer[]>([])
 
   useEffect(() => {
-    const loadDataFromLocalStorage = () => {
+    const loginOnApplicationStart = async () => {
       const savedToken = localStorage.getItem(TOKEN_KEY)
       if (savedToken) {
         const tokenValue = JSON.parse(savedToken)
         if (tokenValue !== null) {
           setAxiosToken(tokenValue)
-          const fetchData = async () => {
+
+          const fetchUsersData = async () => {
             const data = await api.user.currentUser()
-            if (data !== null && data !== undefined) {
-              setIsLoggedIn(true)
-              setUserData(data)
+            setUserData(data)
+            setIsLoggedIn(true)
+          }
+
+          const tryLogin = async () => {
+            try {
+              await fetchUsersData()
+            } catch (error) {
+              await refresh()
+              await fetchUsersData()
             }
           }
-          fetchData()
+
+          await tryLogin()
         }
       }
     }
 
-    loadDataFromLocalStorage()
+    loginOnApplicationStart()
   }, [])
 
-  const logIn = (token: stringOrNull, userData: userDataType) => {
+  useEffect(() => {
+    const testType = JSON.stringify(currentTestType)
+    localStorage.setItem(TEST_TYPE_KEY, testType)
+  }, [currentTestType])
+
+  // const logIn = (
+  //   token: stringOrNull,
+  //   refreshToken: stringOrNull,
+  //   sid: stringOrNull,
+  //   userData: userDataType,
+  // ) => {
+  //   if (token) {
+  //     setIsLoggedIn(true)
+  //     localStorage.setItem(TOKEN_KEY, JSON.stringify(token))
+  //     localStorage.setItem(REFRESH_TOKEN_KEY, JSON.stringify(refreshToken))
+  //     localStorage.setItem(SID_KEY, JSON.stringify(sid))
+  //     setAxiosToken(token)
+  //     setUserData(userData)
+  //   }
+  // }
+
+  const logIn = async (data: UserCredentials) => {
+    const result = await api.auth.login(data)
+    const { accessToken: token, refreshToken, sid, userData } = result
     if (token) {
       setIsLoggedIn(true)
       localStorage.setItem(TOKEN_KEY, JSON.stringify(token))
+      localStorage.setItem(REFRESH_TOKEN_KEY, JSON.stringify(refreshToken))
+      localStorage.setItem(SID_KEY, JSON.stringify(sid))
       setAxiosToken(token)
+      setUserData(userData)
     }
-    setUserData(userData)
   }
 
-  const logOut = () => {
+  const logOut = async () => {
+    const clearSessionData = () => {
+      setAxiosToken("")
+      localStorage.setItem(TOKEN_KEY, JSON.stringify(null))
+      localStorage.setItem(REFRESH_TOKEN_KEY, JSON.stringify(null))
+      localStorage.setItem(SID_KEY, JSON.stringify(null))
+      setUserData({ email: null, id: null })
+    }
+
+    const logOutUser = async () => {
+      await api.auth.logout()
+      clearSessionData()
+    }
+
     setIsLoggedIn(false)
-    setAxiosToken("")
-    localStorage.setItem(TOKEN_KEY, JSON.stringify(null))
-    setUserData({ email: null, id: null })
+    try {
+      await logOutUser()
+    } catch (error) {
+      await refresh()
+      await api.auth.logout()
+      clearSessionData()
+    }
+  }
+
+  const refresh = async () => {
+    const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY)
+    if (refreshToken) {
+      const refreshTokenValue = JSON.parse(refreshToken)
+      setAxiosToken(refreshTokenValue)
+
+      const refreshUser = async (sid: string) => {
+        const result = await api.auth.refresh(sid)
+        if (result) {
+          const { newAccessToken, newRefreshToken, newSid } = result
+          localStorage.setItem(TOKEN_KEY, JSON.stringify(newAccessToken))
+          localStorage.setItem(
+            REFRESH_TOKEN_KEY,
+            JSON.stringify(newRefreshToken),
+          )
+          localStorage.setItem(SID_KEY, JSON.stringify(newSid))
+
+          setAxiosToken(newAccessToken)
+        }
+      }
+
+      const savedSid = localStorage.getItem(SID_KEY)
+      if (savedSid) {
+        const sid = JSON.parse(savedSid)
+        refreshUser(sid)
+      }
+    }
   }
 
   // const saveAnswers(answers: Answer[]) => {
@@ -72,6 +161,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setCurrentTestType,
         answers,
         setAnswers,
+        refresh,
       }}
     >
       {children}

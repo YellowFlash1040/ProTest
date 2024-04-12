@@ -15,6 +15,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <AppContextProvider>
       <App />
     </AppContextProvider>
-    <ToastContainer />
+    <ToastContainer autoClose={2000} />
   </BrowserRouter>,
 )

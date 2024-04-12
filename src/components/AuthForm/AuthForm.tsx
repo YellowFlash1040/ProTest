@@ -43,8 +43,7 @@ const AuthForm = () => {
   const onSubmit = async (data: FormData) => {
     if (actionType === "sign in") {
       try {
-        const result = await api.auth.login(data)
-        logIn(result.accessToken, result.userData)
+        logIn(data)
         navigate("/", { replace: true })
       } catch (error) {
         if (isAxiosError(error)) {

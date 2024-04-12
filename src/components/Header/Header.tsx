@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import clsx from "clsx"
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu"
 import Logo from "../Logo/Logo"
@@ -8,9 +10,6 @@ import SignOutIcon from "../../assets/SignOut.svg?react"
 import { useAppContext } from "../../hooks/useAppContext"
 
 import s from "./Header.module.css"
-import api from "../../api"
-import clsx from "clsx"
-import { useNavigate } from "react-router-dom"
 
 const Header = () => {
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState<boolean>(false)
@@ -33,8 +32,7 @@ const Header = () => {
   }, [])
 
   const handleSignOut = async () => {
-    await api.auth.logout()
-    logOut()
+    await logOut()
     navigate("/auth", { replace: true })
   }
 

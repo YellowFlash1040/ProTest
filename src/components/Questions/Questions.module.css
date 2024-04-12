@@ -250,13 +250,14 @@
   transition: fill var(--transition-options);
 }
 
-.nextPreviousButton:hover > svg {
+.nextPreviousButton:hover > svg,
+.nextPreviousButton:focus > svg {
   fill: #ffffff;
 }
 
 .checkResultsButton {
   color: #ffffff;
-  background-color: green;
+  background-color: #02172a;
 
   padding: 5px 10px;
 }

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 import api from "../../api"
-import { useAppContext } from "../../hooks/useAppContext"
-import { ANSWERS } from "../../constants/localStorage/localStorage"
+import { useAppContext } from "../../hooks"
+import { ANSWERS_KEY } from "../../constants"
 import { IResults } from "../../types"
 import { Diagram, PageContainer } from "../../components"
 
@@ -17,7 +17,7 @@ const Results = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const savedAnswers = localStorage.getItem(ANSWERS)
+      const savedAnswers = localStorage.getItem(ANSWERS_KEY)
       if (savedAnswers) {
         const answers = JSON.parse(savedAnswers)
 
@@ -48,7 +48,7 @@ const Results = () => {
   }, [currentTestType])
 
   const handleTryAgainOnClick = () => {
-    localStorage.setItem(ANSWERS, "")
+    localStorage.setItem(ANSWERS_KEY, "")
     navigate("/test")
   }
 

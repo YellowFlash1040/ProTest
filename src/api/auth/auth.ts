@@ -1,4 +1,5 @@
 import { isAxiosError } from "axios"
+
 import api, { setAxiosToken } from "../axiosConfig"
 
 interface UserCredentials {
@@ -47,8 +48,26 @@ export const logout = async () => {
   }
 }
 
+export const refresh = async (sid: string) => {
+  try {
+    const result = await api.post("auth/refresh", { sid })
+    return result.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const loginWithGoogle = async () => {
+  try {
+    await api.post("auth/google")
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default {
   register,
   login,
   logout,
+  refresh,
 }

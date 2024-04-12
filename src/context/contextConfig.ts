@@ -1,5 +1,5 @@
 import { createContext } from "react"
-import { Answer, TestType } from "../types"
+import { Answer, TestType, UserCredentials } from "../types"
 
 export type stringOrNull = string | null
 
@@ -10,13 +10,14 @@ export type userDataType = {
 
 interface AppContextProps {
   isLoggedIn: boolean
-  logIn: (tokenValue: stringOrNull, userData: userDataType) => void
+  logIn: (data: UserCredentials) => void
   userData: userDataType
   logOut: () => void
   currentTestType: TestType
   setCurrentTestType: (testType: TestType) => void
   answers: Answer[]
   setAnswers: (answers: Answer[]) => void
+  refresh: () => void
 }
 
 export const AppContext = createContext<AppContextProps>({
@@ -28,4 +29,5 @@ export const AppContext = createContext<AppContextProps>({
   setCurrentTestType: () => {},
   answers: [],
   setAnswers: () => {},
+  refresh: () => {},
 })

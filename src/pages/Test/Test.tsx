@@ -9,30 +9,32 @@ const Test = () => {
   const { currentTestType } = useAppContext()
 
   return (
-    <PageContainer>
-      <div className={s.wrapper}>
-        <p className={s.testingTheoryLabel}>
-          {currentTestType === "tech" && (
-            <>
-              QA technical
-              <br />
-              training_
-            </>
-          )}
-          {currentTestType === "theory" && (
-            <>
-              Testing
-              <br />
-              theory_
-            </>
-          )}
-        </p>
-        <Link to={"/"} className={s.finishTest}>
-          Finish test
-        </Link>
-      </div>
-      <Questions className={s.questionsComponent} />
-    </PageContainer>
+    <section className={s.section}>
+      <PageContainer>
+        <div className={s.wrapper}>
+          <p className={s.testingTheoryLabel}>
+            {currentTestType === "tech" && (
+              <>
+                QA technical
+                <br />
+                training_
+              </>
+            )}
+            {currentTestType === "theory" && (
+              <>
+                Testing
+                <br />
+                theory_
+              </>
+            )}
+          </p>
+          <Link to={"/"} className={s.finishTest}>
+            Finish test
+          </Link>
+        </div>
+        <Questions className={s.questionsComponent} />
+      </PageContainer>
+    </section>
   )
 }
 

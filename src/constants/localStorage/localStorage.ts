@@ -1,2 +1,5 @@
 export const TOKEN_KEY = "token"
-export const ANSWERS = "answers"
+export const REFRESH_TOKEN_KEY = "refreshToken"
+export const SID_KEY = "sid"
+export const ANSWERS_KEY = "answers"
+export const TEST_TYPE_KEY = "testType"

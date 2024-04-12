@@ -31,6 +31,7 @@ const PieChart = ({
         // arcLinkLabel={e => e.value + "% " + e.id}
         arcLinkLabel={e => signDataInfo(e.value, e.id)}
         arcLinkLabelsTextOffset={5}
+        arcLinkLabelsSkipAngle={1}
         arcLinkLabelsTextColor='#000000'
         arcLinkLabelsOffset={shortInfoLines ? -50 : -30}
         arcLinkLabelsDiagonalLength={shortInfoLines ? 20 : 50}
@@ -38,7 +39,7 @@ const PieChart = ({
         arcLinkLabelsColor='black'
         enableArcLabels={false}
         isInteractive={false}
-        animate={false}
+        // animate={false}
       />
     </div>
   )

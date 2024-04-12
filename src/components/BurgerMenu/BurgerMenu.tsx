@@ -6,7 +6,6 @@ import BurgerMenuIcon from "../../assets/BurgerMenu.svg?react"
 import CrossIcon from "../../assets/Cross.svg?react"
 import SignOutIcon from "../../assets/SignOut.svg?react"
 import { useAppContext } from "../../hooks/useAppContext"
-import api from "../../api"
 
 import s from "./BurgerMenu.module.css"
 
@@ -29,8 +28,7 @@ const BurgerMenu = ({ isOpened, toggleMenu }: BurgerMenuProps) => {
   }, [isOpened])
 
   const handleSignOut = async () => {
-    await api.auth.logout()
-    logOut()
+    await logOut()
     navigate("/auth", { replace: true })
   }
 
