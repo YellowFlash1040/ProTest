@@ -11,3 +11,63 @@
     margin-bottom: 32px;
   }
 }
+
+.resultsList {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+
+  margin-bottom: 20px;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media only screen and (min-width: 768px) {
+  .resultsList {
+    column-gap: 40px;
+
+    margin-bottom: 32px;
+
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .resultsList {
+    margin-bottom: 28px;
+  }
+}
+
+.correctAnswersLabel {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+
+    transform: translateY(-50%);
+
+    content: "";
+
+    width: 1px;
+    height: 20px;
+
+    background-color: rgba(0, 18, 47, 0.15);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .correctAnswersLabel {
+    &::after {
+      right: -20px;
+    }
+  }
+}
+
+.boldNumbers {
+  font-weight: 700;
+}

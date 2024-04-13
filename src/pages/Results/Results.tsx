@@ -28,14 +28,10 @@ const Results = () => {
         data = await api.qaTest.theoryResults(answers)
       }
 
-      const countOfQuestions = 12
       const percentageFromApi = Number.parseFloat(data.result)
-      const countOfRightAnswers = Math.round(
-        (percentageFromApi * countOfQuestions) / 100,
-      )
+
       const editedData: IResults = {
-        countOfQuestion: countOfQuestions,
-        countOfRightAnswers: countOfRightAnswers,
+        countOfQuestion: answers.length,
         rightAnswerPercentage: percentageFromApi,
         mainMessage: data.mainMessage,
         secondaryMessage: data.secondaryMessage,
@@ -82,27 +78,10 @@ const Results = () => {
 
         <Diagram
           data={{
-            correct: results ? results.rightAnswerPercentage : 50,
-            incorrect: results ? 100 - results.rightAnswerPercentage : 50,
+            countOfQuestions: results ? results.countOfQuestion : 12,
+            rightAnswerPercentage: results ? results.rightAnswerPercentage : 50,
           }}
         />
-
-        <ul className={s.resultsList}>
-          <li className={s.correctAnswersLabel}>
-            <p>
-              Correct answers -{" "}
-              <span className={s.boldNumbers}>
-                {results?.countOfRightAnswers}
-              </span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Total questions -{" "}
-              <span className={s.boldNumbers}>{results?.countOfQuestion}</span>
-            </p>
-          </li>
-        </ul>
 
         <div className={s.catImage} />
 
