@@ -23,7 +23,6 @@
   justify-content: space-between;
   align-items: center;
 
-  /* margin-top: 26px; */
   margin-bottom: 18px;
 }
 
@@ -31,7 +30,6 @@
   .wrapper {
     align-items: start;
 
-    /* margin-top: 40px; */
     margin-bottom: 24px;
   }
 }
@@ -86,6 +84,13 @@
   min-width: 130px;
 
   text-align: center;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #cc5507;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -98,19 +103,3 @@
     min-width: 181px;
   }
 }
-
-/* .questionsComponent {
-  margin-bottom: 20px;
-} */
-
-/* @media only screen and (min-width: 768px) {
-  .questionsComponent {
-    margin-bottom: 273px;
-  }
-} */
-
-/* @media only screen and (min-width: 1280px) {
-  .questionsComponent {
-    margin-bottom: 107px;
-  }
-} */

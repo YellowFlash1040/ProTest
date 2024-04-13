@@ -183,6 +183,13 @@
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #cc5507;
+  }
 }
 
 @media only screen and (min-width: 768px) {

@@ -129,8 +129,8 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .answerOptionsList {
-    max-width: 558px;
-    margin: 0 auto;
+    margin-left: 46px;
+    margin-right: 46px;
   }
 }
 
@@ -260,6 +260,13 @@
   background-color: #02172a;
 
   padding: 5px 10px;
+
+  transition: background-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: #115173;
+  }
 }
 
 @media only screen and (min-width: 768px) {
