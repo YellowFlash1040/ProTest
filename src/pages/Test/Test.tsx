@@ -1,12 +1,17 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import { PageContainer, Questions } from "../../components"
-import { useAppContext } from "../../hooks/useAppContext"
+import { useAppContext } from "../../hooks"
 
 import s from "./Test.module.css"
 
 const Test = () => {
   const { currentTestType } = useAppContext()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <section className={s.section}>

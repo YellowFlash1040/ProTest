@@ -1,8 +1,14 @@
+import { useEffect } from "react"
+
 import { AuthForm, PageContainer } from "../../components"
 
 import s from "./AuthPage.module.css"
 
 const AuthPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <section className={s.section}>
       <PageContainer>

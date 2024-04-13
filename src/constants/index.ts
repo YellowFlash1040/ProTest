@@ -6,6 +6,7 @@ import {
   TEST_TYPE_KEY,
 } from "./localStorage/localStorage"
 import { API_HOST, GOOGLE_AUTH_ROUTE } from "./api/api"
+import { CONTACTS } from "./contacts/contacts"
 
 export {
   API_HOST,
@@ -15,4 +16,5 @@ export {
   SID_KEY,
   ANSWERS_KEY,
   TEST_TYPE_KEY,
+  CONTACTS,
 }

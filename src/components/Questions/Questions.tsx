@@ -30,7 +30,7 @@ const Questions = ({ className }: QuestionsProps) => {
   const [previousIndex, setPreviousIndex] = useState(0)
 
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
-  const { currentTestType } = useAppContext()
+  const { currentTestType, refresh } = useAppContext()
   const navigate = useNavigate()
 
   const [isLoading, setIsLoading] = useState(false)
@@ -52,29 +52,36 @@ const Questions = ({ className }: QuestionsProps) => {
   }, [index, answers])
 
   useEffect(() => {
+    const fetchQuestions = async () => {
+      let data
+      if (currentTestType === "tech") {
+        data = await api.qaTest.tech()
+      } else if (currentTestType === "theory") {
+        data = await api.qaTest.theory()
+      }
+
+      setQuestions(data)
+      setQuestion(data[0])
+      setAnswerOptions(data[0].answers)
+    }
+
     const fetchData = async () => {
       try {
         setIsLoading(true)
-
-        let data
-        if (currentTestType === "tech") {
-          data = await api.qaTest.tech()
-        } else if (currentTestType === "theory") {
-          data = await api.qaTest.theory()
-        }
-
-        setQuestions(data)
-        setQuestion(data[0])
-        setAnswerOptions(data[0].answers)
+        await fetchQuestions()
       } catch (error) {
-        console.log(error)
-        navigate("/auth", { replace: true })
+        try {
+          await refresh()
+          await fetchQuestions()
+        } catch (error) {
+          navigate("/auth", { replace: true })
+        }
       } finally {
         setIsLoading(false)
       }
     }
     fetchData()
-  }, [currentTestType, navigate])
+  }, [currentTestType, navigate, refresh])
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const answer = event.currentTarget.value
@@ -85,6 +92,7 @@ const Questions = ({ className }: QuestionsProps) => {
   }
 
   const handleQuestionChange = (direction: pageChangeDirection) => {
+    window.scrollTo(0, 0)
     // It is used to add smooth animation of radiobutton change when you stay on the same page,
     // and to remove animation when you switch between the pages
     setPreviousIndex(index)

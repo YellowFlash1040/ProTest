@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import api from "../../api"
 import { useAppContext } from "../../hooks"
 import { ANSWERS_KEY } from "../../constants"
-import { IResults } from "../../types"
+import { Answer, IResults } from "../../types"
 import { Diagram, PageContainer } from "../../components"
 
 import s from "./Results.module.css"
@@ -12,40 +12,56 @@ import s from "./Results.module.css"
 const Results = () => {
   const [results, setResults] = useState<IResults>()
 
-  const { currentTestType } = useAppContext()
+  const { currentTestType, refresh } = useAppContext()
   const navigate = useNavigate()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    const fetchResults = async (answers: Answer[]) => {
+      let data
+      if (currentTestType === "tech") {
+        data = await api.qaTest.techResults(answers)
+      } else if (currentTestType === "theory") {
+        data = await api.qaTest.theoryResults(answers)
+      }
+
+      const countOfQuestions = 12
+      const percentageFromApi = Number.parseFloat(data.result)
+      const countOfRightAnswers = Math.round(
+        (percentageFromApi * countOfQuestions) / 100,
+      )
+      const editedData: IResults = {
+        countOfQuestion: countOfQuestions,
+        countOfRightAnswers: countOfRightAnswers,
+        rightAnswerPercentage: percentageFromApi,
+        mainMessage: data.mainMessage,
+        secondaryMessage: data.secondaryMessage,
+      }
+      setResults(editedData)
+    }
+
     const fetchData = async () => {
       const savedAnswers = localStorage.getItem(ANSWERS_KEY)
       if (savedAnswers) {
         const answers = JSON.parse(savedAnswers)
-
-        let data
-        if (currentTestType === "tech") {
-          data = await api.qaTest.techResults(answers)
-        } else if (currentTestType === "theory") {
-          data = await api.qaTest.theoryResults(answers)
+        try {
+          await fetchResults(answers)
+        } catch (error) {
+          try {
+            await refresh()
+            await fetchResults(answers)
+          } catch (error) {
+            navigate("/auth", { replace: true })
+          }
         }
-
-        const countOfQuestions = 12
-        const percentageFromApi = Number.parseFloat(data.result)
-        const countOfRightAnswers = Math.round(
-          (percentageFromApi * countOfQuestions) / 100,
-        )
-        const editedData: IResults = {
-          countOfQuestion: countOfQuestions,
-          countOfRightAnswers: countOfRightAnswers,
-          rightAnswerPercentage: percentageFromApi,
-          mainMessage: data.mainMessage,
-          secondaryMessage: data.secondaryMessage,
-        }
-        setResults(editedData)
       }
     }
 
     fetchData()
-  }, [currentTestType])
+  }, [currentTestType, navigate, refresh])
 
   const handleTryAgainOnClick = () => {
     localStorage.setItem(ANSWERS_KEY, "")

@@ -1,13 +1,18 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
-import { useAppContext } from "../../hooks/useAppContext"
-import ArrowIcon from "../../assets/ArrowRight.svg?react"
+import { useAppContext } from "../../hooks"
 import { PageContainer } from "../../components"
+import ArrowIcon from "../../assets/ArrowRight.svg?react"
 
 import s from "./MainPage.module.css"
 
 const MainPage = () => {
   const { setCurrentTestType } = useAppContext()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <section className={s.section}>
