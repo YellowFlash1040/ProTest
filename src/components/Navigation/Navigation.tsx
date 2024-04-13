@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom"
+import clsx from "clsx"
+
+import { useAppContext } from "../../hooks/useAppContext"
 
 import s from "./Navigation.module.css"
-import { useAppContext } from "../../hooks/useAppContext"
 
 const Navigation = () => {
   const { isLoggedIn } = useAppContext()
@@ -20,7 +22,18 @@ const Navigation = () => {
           </>
         )}
         <li className={s.navLinkItem}>
-          <NavLink to={"/contacts"}>Contacts</NavLink>
+          {(isLoggedIn && <NavLink to={"/contacts"}>Contacts</NavLink>) || (
+            <a
+              href={`${window.location.origin}/contacts`}
+              className={clsx({
+                active:
+                  window.location.toString() ===
+                    `${window.location.origin}/contacts` && !isLoggedIn,
+              })}
+            >
+              Contacts
+            </a>
+          )}
         </li>
       </ul>
     </nav>
