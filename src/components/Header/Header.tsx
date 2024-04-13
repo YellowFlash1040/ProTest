@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import clsx from "clsx"
+// import clsx from "clsx"
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu"
 import Logo from "../Logo/Logo"
@@ -38,9 +38,10 @@ const Header = () => {
 
   return (
     <header
-      className={clsx(s.header, {
-        [s.addHeaderPadding]: !isLoggedIn && screenWidth > 767,
-      })}
+      // className={clsx(s.header, {
+      //   [s.addHeaderPadding]: !isLoggedIn && screenWidth > 767,
+      // })}
+      className={s.header}
     >
       <Logo onClick={() => setIsBurgerMenuOpened(false)} />
       <div className={s.navigationAndUserWrapper}>

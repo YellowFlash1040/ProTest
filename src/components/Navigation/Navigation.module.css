@@ -1,6 +1,18 @@
+/*it is used to make clickable zone of nav links bigger*/
+.navigation {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+
 .navList {
   display: flex;
   column-gap: 60px;
+
+  /*it is used to make clickable zone of nav links bigger*/
+  height: 100%;
+  align-items: center;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -13,6 +25,11 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.02em;
+
+  /*it is used to make clickable zone of nav links bigger*/
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -21,12 +38,35 @@
   }
 }
 
-.navLinkItem > a:global(.active) {
+/*it is used to make clickable zone of nav links bigger*/
+.navLinkItem > a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* .navLinkItem > a:global(.active) {
   position: relative;
   &::after {
     position: absolute;
     left: 0;
     bottom: -1px;
+
+    background-color: #ff6b09;
+
+    content: "";
+
+    width: 100%;
+    height: 1px;
+  }
+} */
+
+.navLinkItem > a:global(.active) {
+  position: relative;
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: calc(50% - (1em / 2) - 5px);
 
     background-color: #ff6b09;
 

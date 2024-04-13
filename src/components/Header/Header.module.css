@@ -12,27 +12,28 @@
 
 @media only screen and (min-width: 768px) {
   .header {
-    /* padding: 20px 32px; */
     padding: 0 32px;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .header {
-    /* padding: 20px 16px; */
     padding: 0px 16px;
   }
 }
 
-.addHeaderPadding {
+/* .addHeaderPadding {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .navigationAndUserWrapper {
   display: flex;
   align-items: center;
   gap: 40px;
+
+  /*it is used to make clickable zone of nav links bigger*/
+  height: 100%;
 }
 
 @media only screen and (max-width: 767px) {

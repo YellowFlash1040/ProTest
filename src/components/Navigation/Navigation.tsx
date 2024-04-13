@@ -9,7 +9,7 @@ const Navigation = () => {
   const { isLoggedIn } = useAppContext()
 
   return (
-    <nav>
+    <nav className={s.navigation}>
       <ul className={s.navList}>
         {isLoggedIn && (
           <>
