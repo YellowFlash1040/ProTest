@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://pro-test-project.vercel.app" target="_blank">
-    <img src="./README assets/banner.png" alt="Pro Test logo" width="600" />
+    <img src="./public/README assets/banner.png" alt="Pro Test logo" width="600" />
   </a>
   
   Pro Test project
@@ -27,7 +27,7 @@ in knowledge so that you can strengthen it. It will also show you what is releva
 
 </div>
 
-<img src="./README assets/home-page.png" alt="Pro Test homepage" border="4px" style="border-color: black;"/>
+<img src="./public/README assets/home-page.png" alt="Pro Test homepage" border="4px" style="border-color: black;"/>
 <br/>
 
 ## Usage
@@ -37,7 +37,7 @@ in knowledge so that you can strengthen it. It will also show you what is releva
   <li>
     <p>Navigate to the <a href="https://pro-test-project.vercel.app" target="_blank">https://pro-test-project.vercel.app</a> page and make yourself an account using an email and a password
     </p>
-    <img src="./README assets/auth-page.png" alt="Pro Test /auth page" border="4px" style="border-color: black;"/>
+    <img src="./public/README assets/auth-page.png" alt="Pro Test /auth page" border="4px" style="border-color: black;"/>
   </li>
   <li>
     <p>Once you are logged in you will see the homepage. Here you need to choose which type of test you would like to take. You have only two options:
@@ -46,18 +46,18 @@ in knowledge so that you can strengthen it. It will also show you what is releva
       <li>QA technical training</li>
       <li>Theory testing</li>
     </ul>
-    <img src="./README assets/home-page.png" alt="Pro Test homepage" border="4px" style="border-color: black;" width="1626"/>
+    <img src="./public/README assets/home-page.png" alt="Pro Test homepage" border="4px" style="border-color: black;" width="1626"/>
   </li>
   <li>
     <p>When the test type is selected you will be redirected to the test page and the corresponding test will be loaded
     </p>
-    <img src="./README assets/test-page.png" alt="Pro Test /test page" border="4px" style="border-color: black;"/>
+    <img src="./public/README assets/test-page.png" alt="Pro Test /test page" border="4px" style="border-color: black;"/>
   </li>
   <li>
     <p>
     After passing the test, you will be redirected to the results page where you can view your results
     </p>
-    <img src="./README assets/results-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
+    <img src="./public/README assets/results-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
     <p>
     Also, if you wish, you can click here on the "Try again" button and retake the test
     </p>
@@ -67,11 +67,11 @@ in knowledge so that you can strengthen it. It will also show you what is releva
 <ul>
   <li>
     <p>Materials page</p>
-    <img src="./README assets/materials-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
+    <img src="./public/README assets/materials-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
   </li>
   <li>
     <p>Contacts page</p>
-    <img src="./README assets/contacts-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
+    <img src="./public/README assets/contacts-page.png" alt="Pro Test /results page" border="4px" style="border-color: black;"/>
   </li>
 </ul>
 
@@ -83,9 +83,9 @@ This project was made for all types of screens :
 - Tablet
 - Mobile
 <ul style="display: flex; gap: 20px; list-style-type: none; align-items: center;">
-  <li><img src="./README assets/home-page.png" alt="Desktop home page"/></li>
-  <li><img src="./README assets/tablet-home-page.png" alt="Tablet home page"/></li>
-  <li><img src="./README assets/mobile-home-page.png" alt="Mobile home page"/></li>
+  <li><img src="./public/README assets/home-page.png" alt="Desktop home page"/></li>
+  <li><img src="./public/README assets/tablet-home-page.png" alt="Tablet home page"/></li>
+  <li><img src="./public/README assets/mobile-home-page.png" alt="Mobile home page"/></li>
 </ul>
 
 ## For developers
