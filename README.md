@@ -15,7 +15,7 @@ in knowledge so that you can strengthen it. It will also show you what is releva
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
 ![CSS Modules](https://img.shields.io/badge/css_modules-blue?style=for-the-badge&logo=css-modules&logoColor=white)
-![CSS Modules](https://img.shields.io/badge/yup-green?style=for-the-badge&logoColor=white)
+![Yup](https://img.shields.io/badge/yup-green?style=for-the-badge&logoColor=white)
 ![AJAX](https://img.shields.io/badge/ajax-red?style=for-the-badge&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -82,11 +82,6 @@ This project was made for all types of screens :
 - Desktop
 - Tablet
 - Mobile
-<!-- <ul style="display: flex; gap: 20px; list-style-type: none; align-items: center;">
-  <li><img src="./public/README assets/home-page.png" alt="Desktop home page"/></li>
-  <li><img src="./public/README assets/tablet-home-page.png" alt="Tablet home page"/></li>
-  <li><img src="./public/README assets/mobile-home-page.png" alt="Mobile home page"/></li>
-</ul> -->
 
 <img src="./public/README assets/responsive-home-page.png" />
 
