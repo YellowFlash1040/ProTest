@@ -82,11 +82,13 @@ This project was made for all types of screens :
 - Desktop
 - Tablet
 - Mobile
-<ul style="display: flex; gap: 20px; list-style-type: none; align-items: center;">
+<!-- <ul style="display: flex; gap: 20px; list-style-type: none; align-items: center;">
   <li><img src="./public/README assets/home-page.png" alt="Desktop home page"/></li>
   <li><img src="./public/README assets/tablet-home-page.png" alt="Tablet home page"/></li>
   <li><img src="./public/README assets/mobile-home-page.png" alt="Mobile home page"/></li>
-</ul>
+</ul> -->
+
+<img src="./public/README assets/responsive-home-page.png" />
 
 ## For developers
 
