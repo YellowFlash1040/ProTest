@@ -85,6 +85,19 @@ This project was made for all types of screens :
 
 <img src="./public/README assets/responsive-home-page.png" />
 
+## Live page
+
+If you want to try it yourself you can go to the
+<https://pro-test-project.vercel.app> page
+
+## Skills that I gained on this project
+
+Working on this project I gained such skills:
+
+- Working with TypeScript
+- Working with App Context instead of Redux
+- Some experience working with JS Charting libraries
+
 ## For developers
 
 If you want to expand or improve this project, or you just want to run it locally you can follow this steps :
