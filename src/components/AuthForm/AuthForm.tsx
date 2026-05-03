@@ -7,9 +7,7 @@ import * as yup from "yup"
 import { isAxiosError } from "axios"
 import { toast } from "react-toastify"
 
-import GoogleIcon from "../../assets/Google.svg?react"
 import api from "../../api"
-import { API_HOST, GOOGLE_AUTH_ROUTE } from "../../constants"
 import { useAppContext } from "../../hooks"
 
 import s from "./AuthForm.module.css"
@@ -62,42 +60,11 @@ const AuthForm = () => {
     }
   }
 
-  const googleAuth = () => {
-    const url = `${API_HOST}${GOOGLE_AUTH_ROUTE}`
-
-    // const width = 1000
-    // const height = 600
-
-    // const left = (window.innerWidth - width) / 2
-    // const top = (window.innerHeight - height) / 2
-
-    // window.open(
-    //   url,
-    //   "_blank",
-    //   `width=${width}, height=${height}, left=${left}, top=${top}`,
-    // )
-
-    window.open(url, "_self")
-  }
-
   return (
     <div className={s.container}>
-      <p className={s.textGoogle}>
-        You can use you Google Account to authorize:
+      <p className={s.text}>
+        You can login/register using an e-mail and a password:
       </p>
-      <button
-        className={s.googleAuthButton}
-        id='googleAuthButton'
-        type='button'
-        onClick={() => {
-          document.getElementById("googleAuthButton")?.blur()
-          googleAuth()
-        }}
-      >
-        <GoogleIcon width={18} height={18} />
-        Google
-      </button>
-      <p className={s.text}>Or login to our app using e-mail and password:</p>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={clsx(s.textInput, { [s.error]: errors.email })}
