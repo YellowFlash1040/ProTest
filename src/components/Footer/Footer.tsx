@@ -10,7 +10,7 @@ const Footer = () => {
       <ul className={s.infoList}>
         <li className={clsx(s.infoListItem, s.addAfter)}>
           <CopyRight width={18} height={18} className={s.copyRightIcon} />
-          2021
+          2023
         </li>
         <li className={clsx(s.infoListItem, s.addAfter)}>
           All Rights Reserved
@@ -21,8 +21,8 @@ const Footer = () => {
         </li>
         <li className={s.infoListItem}>
           by&nbsp;
-          <a href='https://goit.global/ua/' target='_blank'>
-            GoIT Students
+          <a href='https://github.com/YellowFlash1040/' target='_blank'>
+            Andrii
           </a>
         </li>
       </ul>
